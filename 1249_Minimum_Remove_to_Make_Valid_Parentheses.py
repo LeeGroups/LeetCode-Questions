@@ -19,15 +19,14 @@ def minRemoveToMakeValid(s: str) -> str:
         else: 
             bad.append(i)
 
-    y = ""
+    stack += bad
+    stack.sort(reverse=True)
+
 
     # a loop that creates a new string y, which is just s with the indices in stack and bad deleted
-    for i in range(len(s)):
-        if i not in (stack + bad):
-            y += s[i]
-        else: 
-            continue    
-    return y
+    for i in stack:
+        s = s[:i] + s[i+1:]
+    return s
 
 
 # Test
