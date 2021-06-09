@@ -5,21 +5,21 @@ def subarraySum(nums, k) -> int:
     csums = {0: 1}
 
     # a variable storing the current cumulative sum
-    sum = 0
+    current_sum = 0
 
     # stores the number of times k appears as a difference of the cumulative sums
     x = 0
 
     for i in range(len(nums)):
-        sum += nums[i]
+        current_sum += nums[i]
 
-        if sum - k in csums:
-            x += csums[sum-k]
+        if current_sum - k in csums:
+            x += csums[current_sum-k]
         
-        if sum not in csums:
-            csums[sum] = 1
+        if current_sum not in csums:
+            csums[current_sum] = 1
         else: 
-            csums[sum] += 1
+            csums[current_sum] += 1
 
     return x
 
