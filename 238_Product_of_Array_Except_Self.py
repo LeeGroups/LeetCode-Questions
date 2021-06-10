@@ -6,23 +6,15 @@ def productExceptSelf(nums):
     
     # product of the terms starting from the beginning
     start_total = 1
-    first_few = [1 for i in range(n)]
 
     # product of the terms starting from the end
     end_total = 1
-    last_few = [1 for i in range(n)]
 
     for i in range(n):
+        answer[i] *= start_total
+        answer[n-i-1] *= end_total
         start_total *= nums[i]
         end_total *= nums[n-1-i] 
-        first_few[i] = start_total
-        last_few[n-1-i] = end_total
-
-    answer[0] = last_few[1]
-    answer[n-1] = first_few[n-2]
-
-    for i in range(1,n-1):
-        answer[i] = first_few[i-1] * last_few[i+1]
 
     return answer
 
