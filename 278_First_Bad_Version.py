@@ -8,8 +8,7 @@ def firstBadVersion(n,secret = 4):
     last = n
     while first != last:
         middle = (last - first) // 2 + first
-        bad = isBadVersion(middle, secret)
-        if bad:
+        if isBadVersion(middle, secret):
             last = middle
         else:
             first = middle + 1
