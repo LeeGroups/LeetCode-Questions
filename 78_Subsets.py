@@ -12,4 +12,11 @@ def subsets(nums):
                 stack.append(x)
     return [json.loads(elem) for elem in output]
 
+# def subsets(self, nums: List[int]) -> List[List[int]]:
+#     powerset = [[]]
+#     for num in nums:
+#         powerset += [subset + [num] for subset in powerset]
+#     return powerset
+
+
 print(subsets([1,2,3]))
